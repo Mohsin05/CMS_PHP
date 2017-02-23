@@ -1,4 +1,7 @@
-<?php  include "includes/header.php"; ?>
+<?php  include "includes/header.php";
+  include "function.php";
+?>
+
 <body>
 
 <div id="wrapper">
@@ -18,29 +21,45 @@
                         <small>Author</small>
                     </h1>
                     <div class="col-xs-6">
-                    <form>
-                        <div class="form-group">
-                            <label for="category">Add Category</label>
-                            <input type="email" class="form-control" name="category" id="category">
-                        </div>
-                        <button type="submit" name="submit" class="btn btn-primary">Submit</button>
-                    </form>
+                    <?php
+                    include "includes/update_category.php";
+                    ?>
+
                 </div>
                 <!-- /.row -->
-                    <div class="col-xs-6">
+                    <div class="col-xs-6" style="margin-top: 3px">
+                        </br>
                     <table class="table table-bordered table-hover">
                         <thead>
                         <tr>
+
                             <th>Id</th>
                             <th>Category Title</th>
                         </tr>
                         </thead>
                         <tr>
-                            <td>Baseball Category</td>
-                            <td>Baseball Category</td>
 
+                            <!--  Diplay all the categories-->
+
+                            <?php  display_all_categories();    ?>
+
+                            <!-- End of  Diplay all the categories-->
                         </tr>
                     </table>
+
+
+                        <?php
+//
+//                            if(isset($_GET['delete'])){
+//                               $cat_id=$_GET['delete'];
+//
+//                               $sql="DELETE FROM categories WHERE cat_id = $cat_id";
+//                               $result=mysqli_query($con,$sql);
+//                                header("location:category.php");
+//                        }
+//
+                        delete();
+                                                    ?>
                     </div>
             </div>
             <!-- /.container-fluid -->
