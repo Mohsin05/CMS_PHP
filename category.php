@@ -4,31 +4,21 @@
     <!-- Page Content -->
 
     <div class="container">
-        <div class="row">
-            <!-- Blog Entries Column -->
-            <div class="col-md-8">
-                <?php
-                $query="SELECT * FROM posts";
-                $result=mysqli_query($con,$query);
-
-                while($row=mysqli_fetch_assoc($result)) {
-
-                    $post_title = $row['post_title'];
-                    $post_id = $row['post_id'];
-                    $post_author = $row['post_author'];
-                    $post_date = $row['post_date'];
-                    $post_image = $row['post_image'];
-                    $post_content = substr($row['post_content'], 0, 100);
-                    $post_status = $row['post_status'];
-                    echo $post_status;
-                    echo "<br>";
-
-                if($post_status=='Draft') {
-                    echo "<h2>NO POSTS SORRY</h2>";
-
-                };
-                if($post_status=='Publish') {
-
+    <div class="row">
+        <!-- Blog Entries Column -->
+        <div class="col-md-8">
+            <?php
+            if(isset($_GET['category'])){
+                $cat_id=$_GET['category'];
+            $query="SELECT * FROM posts WHERE 	post_category_id=$cat_id";
+            $result=mysqli_query($con,$query);
+            while($row=mysqli_fetch_assoc($result)){
+                $post_title=$row['post_title'];
+                $post_id=$row['post_id'];
+                $post_author=$row['post_author'];
+                $post_date=$row['post_date'];
+                $post_image=$row['post_image'];
+                $post_content=substr($row['post_content'],0,100);
                 ?>
                 <h1 class="page-header">
                     Page Heading
@@ -49,14 +39,14 @@
                 <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
                 <hr>
 
-                <?php   }};?>
+            <?php   }};?>
 
-            </div>
-            <!-- Blog Sidebar Widgets Column -->
-            <?php  include "includes/sidebar.php"?>
         </div>
-        <!-- /.row -->
+        <!-- Blog Sidebar Widgets Column -->
+        <?php  include "includes/sidebar.php"?>
+    </div>
+    <!-- /.row -->
 
-        <hr>
+    <hr>
 
 <?php  include "includes/footer.php"?>

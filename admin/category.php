@@ -49,17 +49,8 @@
 
 
                         <?php
-//
-//                            if(isset($_GET['delete'])){
-//                               $cat_id=$_GET['delete'];
-//
-//                               $sql="DELETE FROM categories WHERE cat_id = $cat_id";
-//                               $result=mysqli_query($con,$sql);
-//                                header("location:category.php");
-//                        }
-//
-                        delete();
-                                                    ?>
+                        delete_cat();
+                              ?>
                     </div>
             </div>
             <!-- /.container-fluid -->

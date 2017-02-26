@@ -8,7 +8,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="index.html">CMS Admin</a>
+        <a class="navbar-brand" href="index.php">CMS Admin</a>
     </div>
     <!-- Top Menu Items -->
     <ul class="nav navbar-right top-nav">
@@ -36,25 +36,25 @@
 
         <ul class="nav navbar-nav side-nav">
             <li>
-                <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                <a href="index.php"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
             </li>
             <li>
-                <a href="javascript:;" data-toggle="collapse" data-target="#posts_dropdown"><i class="fa fa-fw fa-arrows-v"></i> Posts <i class="fa fa-fw fa-caret-down"></i></a>
+                <a  data-toggle="collapse" data-target="#posts_dropdown"><i class="fa fa-fw fa-arrows-v"></i> Posts <i class="fa fa-fw fa-caret-down"></i></a>
                 <ul id="posts_dropdown" class="collapse">
                     <li>
-                        <a href="#">View all posts</a>
+                        <a href="./posts.php">View all posts</a>
                     </li>
                     <li>
-                        <a href="#">Add posts</a>
+                        <a href="posts.php?source=add_posts">Add posts</a>
                     </li>
                 </ul>
             </li>
             <li class="">
-                <a href="blank-page.html"><i class="fa fa-fw fa-file"></i> Category</a>
+                <a href="./category.php"><i class="fa fa-fw fa-file"></i> Category</a>
 
 
             </li> <li class="active">
-                <a href="blank-page.html"><i class="fa fa-fw fa-file"></i> Comments</a>
+                <a href="./comments.php"><i class="fa fa-fw fa-file"></i> Comments</a>
             </li>
 
             <li>
