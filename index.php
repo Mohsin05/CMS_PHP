@@ -8,8 +8,12 @@
             <!-- Blog Entries Column -->
             <div class="col-md-8">
                 <?php
-                $query="SELECT * FROM posts";
+                $query="SELECT * FROM posts WHERE  post_status='Publish'";
                 $result=mysqli_query($con,$query);
+                $query1="SELECT * FROM posts WHERE  post_status='Draft'";
+                $result1=mysqli_query($con,$query1);
+
+                if( $row=mysqli_fetch_assoc($result1)){echo "<h2>NO POST SORRY</h2>";};
 
                 while($row=mysqli_fetch_assoc($result)) {
 
@@ -20,16 +24,9 @@
                     $post_image = $row['post_image'];
                     $post_content = substr($row['post_content'], 0, 100);
                     $post_status = $row['post_status'];
-                    echo $post_status;
-                    echo "<br>";
 
-                if($post_status=='Draft') {
-                    echo "<h2>NO POSTS SORRY</h2>";
 
-                };
-                if($post_status=='Publish') {
-
-                ?>
+               ?>
                 <h1 class="page-header">
                     Page Heading
                     <small>Secondary Text</small>
@@ -49,7 +46,9 @@
                 <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
                 <hr>
 
-                <?php   }};?>
+                <?php
+
+               };?>
 
             </div>
             <!-- Blog Sidebar Widgets Column -->

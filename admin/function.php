@@ -55,11 +55,21 @@ function delete_comment(){
     }
 };
 
+function delete_user(){
+    global $con;
+    if(isset($_GET['delete_user'])){
+        $user_id=$_GET['delete_user'];
+        $sql="DELETE FROM users WHERE user_id = $user_id";
+        $result=mysqli_query($con,$sql);
+        header("location:users.php");
+    }
+};
+
 function unapprove_comment(){
     global $con;
     if(isset($_GET['unapprove'])){
         $comment_id=$_GET['unapprove'];
-        $sql="UPDATE comments SET comments_status= 'Unapproved' WHERE comments_id='$comment_id'";
+        $sql="UPDATE comments SET comments_status= 'Unapprove' WHERE comments_id='$comment_id'";
         $result=mysqli_query($con,$sql);
         header("location:comments.php");
     }
@@ -68,10 +78,31 @@ function unapprove_comment(){
 function approve_comment(){
     global $con;
     if(isset($_GET['approve'])){
-        $comment_id=$_GET['approve'];
-        $sql="UPDATE comments SET comments_status= 'Approved' WHERE comments_id='$comment_id'";
+        $comment_id=$_GET['unapprove'];
+        $sql="UPDATE comments SET comments_status= 'Unapprove' WHERE comments_id='$comment_id'";
         $result=mysqli_query($con,$sql);
         header("location:comments.php");
+    }
+};
+
+
+function change_to_subscribe(){
+    global $con;
+    if(isset($_GET['change_to_admin'])){
+        $user_id=$_GET['change_to_admin'];
+        $sql="UPDATE users SET user_role= 'Admin' WHERE user_id='$user_id'";
+        $result=mysqli_query($con,$sql);
+        header("location:users.php");
+    }
+};
+
+function change_to_admin(){
+    global $con;
+    if(isset($_GET['change_to_subscribe'])){
+        $user_id=$_GET['change_to_subscribe'];
+        $sql="UPDATE users SET user_role= 'Subscribe' WHERE user_id='$user_id'";
+        $result=mysqli_query($con,$sql);
+        header("location:users.php");
     }
 };
 
