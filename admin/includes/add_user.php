@@ -19,7 +19,7 @@
             $result=mysqli_query($con,$sql);
             confirm($result);
             if($result)
-                echo '<h4>User Added Succesfully</h4>';
+                echo '<h4>User Created:'." "."<a href='./users.php'> View Users</a></h4>";
 
         }
 ?>

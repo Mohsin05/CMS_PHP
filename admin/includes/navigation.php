@@ -53,7 +53,7 @@
                 <a href="./category.php"><i class="fa fa-fw fa-file"></i> Category</a>
 
 
-            </li> <li class="active">
+            </li> <li class="">
                 <a href="./comments.php"><i class="fa fa-fw fa-file"></i> Comments</a>
             </li>
 
